@@ -19,6 +19,16 @@ struct db
 
 };
 
+struct db *c_db()
+{
+	return (struct db *) malloc(sizeof(struct db)); 
+}
+struct entry *c_entry()
+{
+	return (struct entry *) malloc(sizeof(struct entry));
+}
+
+
 uint8_t hash(int function, char* input)
 {
 	int i,acc = 0,len = strlen(input);
