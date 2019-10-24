@@ -5,7 +5,7 @@ CCFLAGS= -c -O2
 LDFLAGS= -O2
 
 BIN=hl
-OBJECTS:=$(patsubst %.c, %.o, $(wildcard *.c))
+OBJECTS= hl.o find.o main.o
 HEADERS:=$(wildcard *.h)
 
 
@@ -22,5 +22,9 @@ $(BIN): $(OBJECTS)
 $(OBJECTS): %.o : %.c $(HEADERS)
 	$(CC) $(CCFLAGS) -o $@ $<
 
+test:
+	gcc test.c -o test
+
+
 clean:
-	rm -rf $(BIN) $(OBJECTS)
+	rm -rf $(BIN) $(OBJECTS) test
