@@ -9,6 +9,7 @@
 int main(int argc, char ** args)
 {
 	int i,c;
+	char * buffer;
 	initscr();
 	noecho();
 	cbreak();
@@ -20,7 +21,15 @@ int main(int argc, char ** args)
 	for (i = 0; i < 10; i++)
 	{
 		c = getch();	
-		hl_tick(getch(), maindb);
+		buffer = hl_lex(getch());
+		if ((find(maindb, buffer) != NULL)) { //Found Keyword
+			
+		} else if (buffer == "\n") { //Found new line
+
+		} else { //Found no significant String
+		
+		}
+
 		
 
 	}

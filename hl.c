@@ -1,10 +1,13 @@
+#include <stdlib.h>
 #include "find.h"
 
+#define MAX_LEN
 
+char * buffer = malloc()
 
-void hl_tick(char c,struct db *maindb)
+char* hl_lex(char c)
 {
-	printw("%c",c);	
+	printw("%c",c);
 	
 
 }
