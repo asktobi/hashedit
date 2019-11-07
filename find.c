@@ -1,8 +1,17 @@
+#ifndef FIND_C
+#define FIND_C
+
+
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+
+#include "hash.c"
+
 #define SUM_H 1
+
+
 
 struct entry 
 {
@@ -28,22 +37,10 @@ struct entry *c_entry()
 	return (struct entry *) malloc(sizeof(struct entry));
 }
 
-
-uint8_t hash(int function, char* input)
-{
-	int i,acc = 0,len = strlen(input);
-	for (i = 0;i <= len;i++)
-	{
-		acc += input[i];
-	}
-
-	return (uint8_t) acc;
-}
-
 struct entry *find_entry(struct db *searchspace, char *name)
 {
 	struct entry *found;
-	uint8_t index = hash(SUM_H,name);
+	uint8_t index = (uint8_t) *(int * ) (hashstring(SUM_H,name));
 	
 	if ( !searchspace->list[index])
 	{
@@ -64,7 +61,7 @@ struct entry *find_entry(struct db *searchspace, char *name)
 void *find(struct db *searchspace, char *name)
 {
 	struct entry *found;
-	uint8_t index = hash(SUM_H,name);
+	uint8_t index = (uint8_t) *(int * ) (hashstring(SUM_H,name));
 	
 	if ( !searchspace->list[index])
 	{
@@ -92,7 +89,7 @@ void *find(struct db *searchspace, char *name)
 
 void insert(struct db *searchspace, char *name, void *ptr)
 {
-	uint8_t index = hash(SUM_H,name);
+	uint8_t index = (uint8_t) *(int * ) (hashstring(SUM_H,name));
 	struct entry *new_entry = (struct entry*) malloc(sizeof(struct entry*));
 	
 	
@@ -107,3 +104,6 @@ void insert(struct db *searchspace, char *name, void *ptr)
 
 	return;
 }
+
+
+#endif

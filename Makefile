@@ -2,7 +2,7 @@ CC=gcc
 LD=gcc
 
 CCFLAGS= -c -O2
-LDFLAGS= -O2
+LDFLAGS= -O2 -lncurses
 
 BIN=hl
 OBJECTS= hl.o find.o main.o
@@ -13,7 +13,7 @@ HEADERS:=$(wildcard *.h)
 
 
 all: 
-	gcc main.c -o $(BIN)
+	gcc main.c -o $(BIN) -lncurses
 
 
 $(BIN): $(OBJECTS)
