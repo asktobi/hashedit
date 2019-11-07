@@ -27,6 +27,7 @@ void * hashstring(int function, char* input)
 
 			return acc;
 		case HMAC_HASH :
+
 		default:
 	
 			return NULL;

@@ -26,7 +26,7 @@ int main(int argc, char ** args)
 
 	while (status != ST_QUIT)
 	{	
-		buffer = hl_lex(getch());
+		buffer = hl_lex("test",getch());
 		
 		if (buffer != NULL)
 		{
