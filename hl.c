@@ -14,6 +14,8 @@ size_t MAX_LEN = 256;
 char * hl_lex(char *buffer, char c)
 {
 
+#define STATUS_HELP
+
 #ifdef STATUS_HELP
 	printw("(%d)-> %c\n",c ,c);
 #endif
@@ -28,10 +30,12 @@ char * hl_lex(char *buffer, char c)
 
 	switch (c)
 	{
-		case 'q':
-
+		case 7:          //Backspace
+			
 			break;
-		case 't':
+		case 10:         //Enter
+			break;
+		case '\t':       //Tab
 			break;
 		default:
 			printw("%c",c);
